@@ -5,7 +5,7 @@ int main()
  {
  	int menu1, energia;
  	printf ("Que quiere consultar?\n -Datos de una sola energia(1)\n -Datos de varias energias(2)\n");
- 	scanf ("%c", &menu1);
+ 	scanf ("%i", &menu1);
  	switch (menu1)
  		{
  			case 1:
