@@ -1,13 +1,13 @@
-# ENERGÍA GENERADA EN 2021-22]
+# ENERGÍA GENERADA EN 2021-22
 
 [Un programa que te permite consultar datos, realizar cálculos con los mismos y/o añadir nueva información con los datos de la Red Eléctrica Española.]
 
 ## Integrantes del equipo
 
-[Marta Tenorio Rodríguez:martatenorodri;
+Marta Tenorio Rodríguez:martatenorodri;
 Mónica Ríos García:monicariosg24;
 Ana Sánchez Ortega:anasortega;
-Fátima Rohaibani Alkadri:fati-ra]
+Fátima Rohaibani Alkadri:fati-ra
 
 ## Objetivos del trabajo
 
