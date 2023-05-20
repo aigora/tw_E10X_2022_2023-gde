@@ -79,8 +79,36 @@ int main()
  	  {
  		scanf("%i",&energias[i]);
 	  }
-    }
- 
+	printf("Que tipo de consulta quiere hacer\n");
+	printf("Mostrar dato/s (1)\n"); 
+	printf("Calcular media (2)");
+	printf("Calcular moda (3)");
+	printf("Tipo de energía(4)");
+	 scanf("%i",&consulta);
+	 switch (consulta)
+	   {
+	 	case 1:
+	 		{
+	 		//FUNCION DE MOSTRAR DATOS
+	 		break;
+			}
+		case 2:
+			{
+			//FUNCION PARA CALCULAR MEDIA
+			break;	
+			}
+		case 3:
+			{
+			//FUNCION PARA CALCULAR MODA
+			break;
+			}
+		case 4:
+			{
+			//FUNCION PARA TIPO DE ENERGÍA	
+			break;
+			}	
+          }
+        }
  	
  	return 0;
  }
