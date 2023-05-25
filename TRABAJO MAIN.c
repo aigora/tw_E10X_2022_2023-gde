@@ -4,6 +4,8 @@
 #include <string.h>
 #include <ctype.h>
 
+void funciontipo(int [],int);
+
 typedef struct {
 	char filasenteras [1000]; 
 } Datos ;
@@ -104,11 +106,34 @@ int main()
 			}
 		case 4:
 			{
-			//FUNCION PARA TIPO DE ENERGÍA	
+			//FUNCION PARA TIPO DE ENERGÍA
+			funciontipo(energias,nenergias);
 			break;
 			}	
           }
         }
  	
  	return 0;
+ }
+
+void funciontipo(int numeros[], int nenergias) 
+ {
+ 	
+ 	int k=0;
+ 	   
+ 	
+    for (k=0; k<nenergias; k++){
+		
+		if (numeros[k] == 2 || numeros[k] == 3 || numeros[k] == 4 || numeros[k] == 5 || numeros[k] == 15 || numeros[k] == 16){
+			
+			printf("la energia numero %i: No es renobable\n", k+1);
+			
+		}else{
+			
+			printf("la energia numero %i: Es renovable\n", k+1);
+		}
+	}
+ 	
+ 
+ 
  }
