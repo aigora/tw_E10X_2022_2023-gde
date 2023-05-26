@@ -5,6 +5,7 @@
 #include <ctype.h>
 
 void funciontipo(int [],int);
+void funcionmoda(int energias[], Datos filas[30], int nenergias);
 
 typedef struct {
 	char filasenteras [1000]; 
@@ -102,6 +103,7 @@ int main()
 		case 3:
 			{
 			//FUNCION PARA CALCULAR MODA
+			funcionmoda(energias, filas, nenergias);
 			break;
 			}
 		case 4:
@@ -137,3 +139,67 @@ void funciontipo(int numeros[], int nenergias)
  
  
  }
+
+void funcionmoda(int energias[], Datos filas[30], int nenergias)
+{
+	int nmeses=0, l=0;
+	float dato[40];
+	int mes[24], ano[24];
+	int i, j, k, l, o, p;
+	int energy=1;
+	int ncomas=0;
+	
+	printf("Introduzca el número de meses en los que se desea consultar la moda\n");
+    	scanf("%i", &nmeses);
+	
+	 for (p = 0; p < nenergias; p++)
+    {
+        for (l = 0; l < nmeses; l++)
+        {
+            printf("Introduzca el mes %i de la energía %i\n", l + 1, p + 1);
+            scanf("%i", &mes[l]);
+            printf("Introduzca el año en el que lo quiere consultar (2021/2022)\n");
+            scanf("%i", &ano[l]);
+        }
+
+        for (o = 0; o < nmeses; o++)
+        {
+            ncomas = 0;
+            k = 0;
+
+            if (ano[o] == 2022)
+            {
+                for (i = energias[p] + 4, j = 1; ncomas != mes[o] + 13; j++)
+                {
+                    if (filas[i].filasenteras[j] == ',')
+                        ncomas++;
+                    else if (ncomas == mes[o] + 12)
+                    {
+                        dato[k] = filas[i].filasenteras[j];
+                        
+                        k++;
+                    }
+                }
+            }
+            else if (ano[o] == 2021)
+            {
+                for (i = energias[p] + 4, j = 1; ncomas != mes[o] + 1; j++)
+                {
+                    if (filas[i].filasenteras[j] == ',')
+                        ncomas++;
+                    else if (ncomas == mes[o])
+                    {
+                        dato[k] = filas[i].filasenteras[j];
+                        k++;
+                    }
+                }
+            }
+
+            dato[k] = '\0';  // Agregar el carácter de terminación de cadena
+
+            printf("Dato para el mes %i/%i de la energía %i es: %s\n", mes[o], ano[o], p + 1, dato);
+        }
+	// AQUI SE CONVIERTE EL DATO TIPO CHAR A TIPO FLOAT
+    }
+	
+}
