@@ -200,6 +200,10 @@ void funcionmoda(int energias[], Datos filas[30], int nenergias)
             printf("Dato para el mes %i/%i de la energía %i es: %s\n", mes[o], ano[o], p + 1, dato);
         }
 	// AQUI SE CONVIERTE EL DATO TIPO CHAR A TIPO FLOAT
+	 for (i=0; dato[i]!='\0'; i++)
+	{
+		dato[i] = atof(&dato[i]); //convertimos la cadena a numero real
+	}
     }
 	
 }
