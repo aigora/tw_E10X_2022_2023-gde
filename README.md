@@ -15,7 +15,10 @@ Fátima Rohaibani Alkadri:fati-ra
 ## Objetivos del trabajo
 
  -Adquirir agilidad con programas más elaborados.
+ 
  -Uso de conocimientos aprendidos en clase.
+ 
  -Abarcar la mayor cantidad de casos y situaciones sin problemas a la hora de poner las ideas en práctica.
+ 
  -Trabajar en equipo y servirse de los conocimientos de todos los integrantes.
 
