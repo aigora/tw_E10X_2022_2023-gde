@@ -5,18 +5,20 @@
 #include <ctype.h>
 
 void funciontipo(int [],int);
-void funcionmoda(int energias[], Datos filas[30], int nenergias);
+
 
 typedef struct {
 	char filasenteras [1000]; 
 } Datos ;
+
+void funcionmoda(int energias[], Datos filas[30], int nenergias);
 
 int main()
  {
  	int i,j;
  	int ncomas=0,nenergias=0,accion=0;
  	int energias [18];
- 	int menu1, energia;
+ 	int menu1, energia, consulta;
  	setlocale(LC_CTYPE,"spanish");
  	
  	Datos filas[30];
