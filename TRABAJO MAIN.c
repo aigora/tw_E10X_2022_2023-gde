@@ -4,13 +4,14 @@
 #include <string.h>
 #include <ctype.h>
 
-void funciontipo(int [],int);
+
 
 
 typedef struct {
 	char filasenteras [1000]; 
 } Datos ;
 
+void funciontipo(int [],int);
 void funcionmoda(int energias[], Datos filas[30], int nenergias);
 
 int main()
