@@ -19,6 +19,7 @@ int main()
  	int ncomas=0,nenergias=0,accion=0;
  	int energias [18];
  	int menu1, energia, consulta;
+	char filanueva[1000];
  	setlocale(LC_CTYPE,"spanish");
  	
  	Datos filas[30];
@@ -38,21 +39,7 @@ int main()
 	filas[i].filasenteras[strlen(filas[i].filasenteras)]='\0';	
 																//CIERRO CADENA														
     }
-    /*for(i=0;i<24;i++)
-	{
-	  	printf ("%s\n",filas[i].filasenteras);
-    }*/
-    
    
-  /*  for(j=0;filas[0].filasenteras[j]!='\0';j++){
-		  printf("%c",filas[0].filasenteras[j]);
-    	
-    	if (filas[0].filasenteras[j]==',') ncomas++;
-    	//printf("%i",ncomas);
-    //}	
-	}
-	printf("\n%i",ncomas);*/
-	
 	printf("Quiere consultar (0) o añadir datos (1)\n");//Control de datos
 	scanf("%i",&accion);
 	if (accion==0)
@@ -118,9 +105,9 @@ int main()
         }
 	if (accion==1)
     {
-    	FILE *file; 
+    	FILE *add; 
 
-       if ((file = fopen("generacion_por_tecnologias_21_22.csv","a"))==NULL)
+       if ((add = fopen("generacion_por_tecnologias_21_22_puntos_simplificado.csv","a"))==NULL)
 	    {
         printf("No se pudo abrir el archivo.\n");
         return 1;
@@ -131,9 +118,9 @@ int main()
     printf("Nombre de la energía,dato (01/2021),dato(02/2021),...\n");
     
     scanf("%s",filanueva);
-    fprintf(file, "%s\n", filanueva);
+    fprintf(add, "%s\n", filanueva);
 
-    fclose(file);
+    fclose(add);
     printf("Los datos se han agregado al archivo correctamente\n");
 	}    	 
 	
