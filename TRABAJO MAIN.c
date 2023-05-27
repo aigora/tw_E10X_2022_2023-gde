@@ -75,9 +75,9 @@ int main()
 	  }
 	printf("Que tipo de consulta quiere hacer\n");
 	printf("Mostrar dato/s (1)\n"); 
-	printf("Calcular media (2)");
-	printf("Calcular moda (3)");
-	printf("Tipo de energía(4)");
+	printf("Calcular media (2)\n");
+	printf("Calcular moda (3)\n");
+	printf("Tipo de energía(4)\n");
 	 scanf("%i",&consulta);
 	 switch (consulta)
 	   {
