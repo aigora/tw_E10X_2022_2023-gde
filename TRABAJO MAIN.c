@@ -116,6 +116,29 @@ int main()
 			}	
           }
         }
+	if (accion==1)
+    {
+    	FILE *file; 
+
+       if ((file = fopen("generacion_por_tecnologias_21_22.csv","a"))==NULL)
+	    {
+        printf("No se pudo abrir el archivo.\n");
+        return 1;
+        }
+
+
+    printf("Ingrese los datos nuevos de la siguiente manera:\n");
+    printf("Nombre de la energía,dato (01/2021),dato(02/2021),...\n");
+    
+    scanf("%s",filanueva);
+    fprintf(file, "%s\n", filanueva);
+
+    fclose(file);
+    printf("Los datos se han agregado al archivo correctamente\n");
+	}    	 
+	
+	printf("Ha llegado al final de su ejecución.\n");
+	
  	
  	return 0;
  }
