@@ -13,6 +13,7 @@ typedef struct {
 
 void funciontipo(int [],int);
 void funcionmoda(int energias[], Datos filas[30], int nenergias);
+float calculomoda(float datos_convertidos[][40], int nenergias);
 
 int main()
  {
@@ -229,5 +230,30 @@ void funcionmoda(int energias[], Datos filas[30], int nenergias)
             printf("%f\n", datos_convertidos[n][q]);
         }
     }
+    mayor = calculomoda(datos_convertidos, nenergias);
+    
+    printf("Este es el dato de la energía más usada en los meses introducidos: %f", mayor);
 	
+}
+
+float calculomoda(float datos_convertidos[][40], int nenergias)
+{
+    int i, j, k = nenergias - 1;
+    float mayor;
+    
+    for (j = 0; j < nenergias - 1; j++)
+    {
+        for (i = 0; i < k; i++)
+        {
+            if (datos_convertidos[i][j] < datos_convertidos[i + 1][j])
+            {
+                mayor = datos_convertidos[i][j];
+                datos_convertidos[i][j] = datos_convertidos[i + 1][j];
+                datos_convertidos[i + 1][j] = mayor;
+            }
+        }
+        k--;
+    }
+    
+    return datos_convertidos[0][0];  // Retornar el elemento de mayor valor
 }
