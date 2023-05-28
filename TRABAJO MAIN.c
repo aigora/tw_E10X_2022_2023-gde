@@ -14,6 +14,8 @@ typedef struct {
 void funciontipo(int [],int);
 void funcionmoda(int energias[], Datos filas[30], int nenergias);
 float calculomoda(float datos_convertidos[][40], int nenergias);
+void funcionmedia( int nenergias, int energias[], Datos filas[30]);
+float calculomedia(float datos_convertidos[][40], int nenergias, int nmeses);
 void funcionmostrar(int[],int,Datos filas [30]);
 
 int main()
@@ -98,6 +100,7 @@ int main()
 			}
 		case 2:
 			{
+			funcionmedia(nenergias, energias, filas);
 			//FUNCION PARA CALCULAR MEDIA
 			break;	
 			}
@@ -349,4 +352,105 @@ void funcionmostrar(int energias [],int nenergias,Datos filas [30])
 	}
 }
 	
+}
+void funcionmedia ( int nenergias, int energias[], Datos filas[30])
+{
+	
+     float datos_convertidos[30][40];
+     int nmeses = 0, l, i, j, k, o, p, m, n, q, y, x;
+    int mes[24], ano[24];
+    int energy = 1;
+    int ncomas = 0;
+    char datos[30][40];
+    float suma, media;
+   	printf ("Introduzca el numero de meses de consulta para la energia %i \n", nenergias);
+ 	scanf ("%i", &nmeses);
+    
+    
+      for (p = 0; p < nenergias; p++)
+    {
+        for (l = 0; l < nmeses; l++)
+        {
+            printf("Introduzca el mes %i de la energía %i\n", l + 1, p + 1);
+            scanf("%i", &mes[l]);
+            printf("Introduzca el año en el que lo quiere consultar (2021/2022)");
+            scanf("%i", &ano[l]);
+        }
+
+        for (o = 0; o < nmeses; o++)
+        {
+            ncomas = 0;
+            k = 0;
+
+            if (ano[o] == 2022)
+            {
+                for (i = energias[p] + 4, j = 1,ncomas = 0; ncomas != mes[o] + 13; j++)
+                {
+                    if (filas[i].filasenteras[j] == ',')
+                        ncomas++;
+                    else if (ncomas == mes[o] + 12)
+                    {
+                        datos[p][k] = filas[i].filasenteras[j];
+                        k++;
+                    }
+                }
+            }
+            else if (ano[o] == 2021)
+            {
+                for (i = energias[p] + 4, j = 1,ncomas = 0; ncomas != mes[o] + 1; j++)
+                {
+                    if (filas[i].filasenteras[j] == ',')
+                        ncomas++;
+                    else if (ncomas == mes[o])
+                    {
+                        datos[p][k] = filas[i].filasenteras[j];
+                        k++;
+                    }
+                }
+            }
+
+            datos[p][k] = '\0';  // Agregar el carácter de terminación de cadena
+
+            printf("Dato para el mes %i/%i de la energía %i es: %s\n", mes[o], ano[o], p + 1, datos[p]);
+        }
+    }
+    
+    for (m = 0; m < nenergias; m++)
+    {
+        printf("%s\n", datos[m]);
+    }
+
+      for (n = 0; n < nenergias; n++)
+    {
+        for (q = 0; q < strlen(datos[m]); q++)
+        {
+            datos_convertidos[n][q] = atof(&datos[n][q]); // Convertir la cadena a número real
+            //printf("%f\n", datos_convertidos[n][q]);
+        }
+    }
+    for(p=0; p < nenergias; p++)
+    {
+	  media = calculomedia( datos_convertidos, nenergias, nmeses);
+      printf("la media es %f\n", media);
+	}
+    
+}
+float calculomedia ( float datos_convertidos[][40], int nenergias, int nmeses)
+{
+	int i, j;
+	int nemeses;
+	float media, suma;
+	
+	for(i=0; i<nenergias; i++)
+	{
+		for(j=0; j<nenergias; j++)
+		{
+			
+		suma+= datos_convertidos[i][j];
+		
+		
+	    }
+	}
+	media= (float) suma/ nmeses;
+	return media;
 }
