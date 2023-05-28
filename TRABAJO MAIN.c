@@ -272,7 +272,7 @@ void funcionmostrar(int energias [],int nenergias,Datos filas [30])
 		scanf("%i",&numdatos);
 		for (j=0;j<numdatos;j++)
 		{
-			printf("Intrdocuzca el mes %i de la energia %i: ",j+1,energias[i]);
+			printf("Intrduzca el mes %i de la energia %i: ",j+1,energias[i]);
 			scanf("%i",&mes[j]);
 			printf("Introduzca el año de dicho mes: ");
 			scanf("%i",&ano[j]);
