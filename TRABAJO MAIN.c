@@ -19,7 +19,7 @@ void funcionmostrar(int[],int,Datos filas [30]);
 int main()
  {
  	int i,j;
- 	int ncomas=0,nenergias=0,accion=0;
+ 	int nenergias=0,accion=0;
  	int energias [18];
  	int menu1, energia, consulta;
 	char filanueva[1000];
