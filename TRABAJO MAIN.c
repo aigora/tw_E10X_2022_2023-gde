@@ -42,13 +42,19 @@ int main()
 	filas[i].filasenteras[strlen(filas[i].filasenteras)]='\0';	
 																//CIERRO CADENA														
     }
-   
+ while (1) {
 	printf("Quiere consultar (0) o añadir datos (1)\n");//Control de datos
 	scanf("%i",&accion);
+	
 	if (accion==0)
 	{
-		printf("¿Cuantas energías quiere consultar? (introduzca un entero positivo)\n");
-    	scanf("%i",&nenergias);
+		do{
+			printf("¿Cuantas energías quiere consultar? (introduzca un entero positivo)\n");
+			scanf("%i",&nenergias);
+		if (nenergias < 1 || nenergias > 18) {
+			printf("Número inválido. Por favor, intentelo de nuevo.\n");
+		}
+		} while (nenergias < 1 || nenergias > 18);
     	
     printf ("Introduzca la energia/as que quiere consultar.\n");
  	printf ("Hidraulica(1)\n");
@@ -74,6 +80,8 @@ int main()
  	  {
  		scanf("%i",&energias[i]);
 	  }
+		
+	do{	
 	printf("Que tipo de consulta quiere hacer\n");
 	printf("Mostrar dato/s (1)\n"); 
 	printf("Calcular media (2)\n");
@@ -104,11 +112,14 @@ int main()
 			//FUNCION PARA TIPO DE ENERGÍA
 			funciontipo(energias,nenergias);
 			break;
-			}	
+			}
+		default:
+                printf("Opción invalida. Por favor, intentelo de nuevo.\n");
+                break;
           }
-        }
-	if (accion==1)
-    {
+	}while(consulta!=4); 
+		
+        }else if (accion==1){
     	FILE *add; 
 
        if ((add = fopen("generacion_por_tecnologias_21_22_puntos_simplificado.csv","a"))==NULL)
@@ -126,11 +137,14 @@ int main()
 
     fclose(add);
     printf("Los datos se han agregado al archivo correctamente\n");
-	}    	 
 	
-	printf("Ha llegado al final de su ejecución.\n");
+printf("Ha llegado al final de su ejecución.\n");
+		
+ 	}else{
+		printf("Ese número no es válido. Por favor, intentelo de nuevo.\n");
+	}    
 	
- 	
+ 	}
  	return 0;
  }
 
@@ -165,18 +179,37 @@ void funcionmoda(int energias[], Datos filas[30], int nenergias)
     char datos[30][40];
     float datos_convertidos[30][40];
     float mayor;
+	
+do{
+
     printf("Introduzca el número de meses en los que se desea consultar la moda\n");
     scanf("%i", &nmeses);
-    
+    if (1 < nmeses > 24) {
+            
+		printf("El maximo de meses para consultar la moda es de 24. Por favor, intentelo de nuevo.\n");
+     }
+}while (1 < nmeses > 24);
 
     for (p = 0; p < nenergias; p++)
     {
         for (l = 0; l < nmeses; l++)
         {
+	do{
             printf("Introduzca el mes %i de la energía %i\n", l + 1, p + 1);
             scanf("%i", &mes[l]);
+	if (1< mes[l] > 12) {
+		printf("El mes introducido es incorrecto. Por favor, intentelo de nuevo.\n");
+	}
+	}while (1< mes[l]>12);	
+		
+	do{
             printf("Introduzca el año en el que lo quiere consultar (2021/2022)");
             scanf("%i", &ano[l]);
+	if(ano[l] != 2021 && ano[l] != 2022){
+            	printf("No tenemos constancia de ese año. Por favor, intentelo de nuevo.\n");
+	}
+			
+	}while(ano[l]!=2021 && ano[l]!=2022);
         }
 
         for (o = 0; o < nmeses; o++)
