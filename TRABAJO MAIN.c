@@ -14,6 +14,7 @@ typedef struct {
 void funciontipo(int [],int);
 void funcionmoda(int energias[], Datos filas[30], int nenergias);
 float calculomoda(float datos_convertidos[][40], int nenergias);
+void funcionmostrar(int[],int,Datos filas [30]);
 
 int main()
  {
@@ -84,6 +85,7 @@ int main()
 	 	case 1:
 	 		{
 	 		//FUNCION DE MOSTRAR DATOS
+			funcionmostrar(energias,nenergias,filas);	
 	 		break;
 			}
 		case 2:
@@ -256,4 +258,62 @@ float calculomoda(float datos_convertidos[][40], int nenergias)
     }
     
     return datos_convertidos[0][0];  // Retornar el elemento de mayor valor
+}
+void funcionmostrar(int energias [],int nenergias,Datos filas [30])
+{
+	int i,j,k,l,m;
+	int ncomas=0;
+	char dato[30];
+	int numdatos=0;
+	int mes[24],ano[24];
+	for (i=0;i<nenergias;i++)
+{       
+		printf("¿Cuantos datos de la energía %i quiere mostrar?\n",energias[i]);
+		scanf("%i",&numdatos);
+		for (j=0;j<numdatos;j++)
+		{
+			printf("Intrdocuzca el mes %i de la energia %i: ",j+1,energias[i]);
+			scanf("%i",&mes[j]);
+			printf("Introduzca el año de dicho mes: ");
+			scanf("%i",&ano[j]);
+		}
+		for (j=0;j<numdatos;j++)
+	{
+		if(ano[j]==2022)
+       {
+            	for(k=energias[i]+4,l=1,m=0,ncomas=0;ncomas!=mes[j]+13;l++)
+	    	{
+    	
+                	if (filas[k].filasenteras[l]==',') ncomas++;
+        	else
+    	        {
+    	    		if (ncomas==mes[j]+12)	
+		           {
+				      dato[m]=filas[k].filasenteras[l];
+				    m++;
+			       }
+		        }
+	       }
+	       printf("Este es el dato del %i/%i de la energía %i: %s \n",mes[j],ano[j],energias[i],dato); 
+	   } 
+	   if (ano[j]==2021)
+	   {
+	   	    	for(k=energias[i]+4,l=1,m=0,ncomas=0;ncomas!=mes[j]+1;l++)
+	    	{
+    	
+                	if (filas[k].filasenteras[l]==',') ncomas++;
+        	else
+    	        {
+    	    		if (ncomas==mes[j])	
+		           {
+				      dato[m]=filas[k].filasenteras[l];
+				    m++;
+			       }
+		        }
+	       }
+	       printf("Este es el dato del %i/%i de la energía %i: %s \n",mes[j],ano[j],energias[i],dato); 
+	   }
+	}
+}
+	
 }
