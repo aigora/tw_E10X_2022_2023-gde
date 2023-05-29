@@ -420,12 +420,12 @@ void funcionmedia ( int nenergias, int energias[], Datos filas[30])
    	printf ("Introduzca el numero de meses de consulta para la energia %i \n", nenergias);
  	scanf ("%i", &nmeses);
 	
-	if (nmeses > 24 || nmeses <1) {
+	if (nmeses > 24 || nmeses <2) {
             
 		printf("El maximo de meses para consultar la media es de 24. Por favor, intentelo de nuevo.\n");
 		
 	}
-	}while (nmeses > 24 || nmeses <1);
+	}while (nmeses > 24 || nmeses <2);
     
     
       for (p = 0; p < nenergias; p++)
