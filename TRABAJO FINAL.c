@@ -190,11 +190,11 @@ void funciontipo(int numeros[], int nenergias)
 		
 		if (numeros[k] == 2 || numeros[k] == 3 || numeros[k] == 4 || numeros[k] == 5 || numeros[k] == 15 || numeros[k] == 16){
 			
-			printf("la energia numero %i: No es renobable\n", k+1);
+			printf("la energia numero %i: No es renobable\n\n", k+1);
 			
 		}else{
 			
-			printf("la energia numero %i: Es renovable\n", k+1);
+			printf("la energia numero %i: Es renovable\n\n", k+1);
 		}
 	}
  	
@@ -298,7 +298,7 @@ do{
     }
     mayor = calculomoda(datos_convertidos, nenergias);
     
-    printf("Este es uno de los datos pertenecientes a la energía más usada en los meses introducidos: %f GWh", mayor);
+    printf("Este es uno de los datos pertenecientes a la energía más usada en los meses introducidos: %f GWh\n", mayor);
 
 printf("\n");
 }
