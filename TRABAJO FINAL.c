@@ -171,8 +171,6 @@ int main()
 
     fclose(add);
     printf("Los datos se han agregado al archivo correctamente\n");
-	
-printf("Ha llegado al final de su ejecución.\n");
 		
  	}else{
 		printf("Ese número no es válido. Por favor, intentelo de nuevo.\n");
