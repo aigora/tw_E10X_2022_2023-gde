@@ -23,7 +23,7 @@ int main()
  	int i,j;
  	int nenergias=0,accion=0;
  	int energias [18];
- 	int menu1, energia, consulta;
+ 	int energia, consulta;
 	char filanueva[1000];
  	setlocale(LC_CTYPE,"spanish");
  	
@@ -45,9 +45,12 @@ int main()
 																//CIERRO CADENA														
     }
  while (1) {
-	printf("Quiere consultar (0) o añadir datos (1)\n");//Control de datos
+	printf("Quiere:\nConsultar (0)\nAñadir datos (1)\nFinalizar el programa (2)\n");//Control de datos
 	scanf("%i",&accion);
 	
+	if (accion==2)
+	break;
+	 
 	if (accion==0)
 	{
 		do{
@@ -112,6 +115,7 @@ int main()
 	printf("Calcular media (2)\n");
 	printf("Calcular moda (3)\n");
 	printf("Tipo de energía(4)\n");
+	printf("Volver al inicio(5)\n");
 	 scanf("%i",&consulta);
 	 switch (consulta)
 	   {
@@ -139,11 +143,15 @@ int main()
 			funciontipo(energias,nenergias);
 			break;
 			}
+		case 5:
+			{
+			break;
+			}
 		default:
                 printf("Opción invalida. Por favor, intentelo de nuevo.\n");
                 break;
           }
-	}while(consulta!=4); 
+	}while(consulta!=5); 
 		
         }else if (accion==1){
     	FILE *add; 
@@ -193,7 +201,7 @@ void funciontipo(int numeros[], int nenergias)
 	}
  	
  
- 
+ printf("\n");
  }
 
 void funcionmoda(int energias[], Datos filas[30], int nenergias)
@@ -210,11 +218,11 @@ do{
 
     printf("Introduzca el número de meses en los que se desea consultar la moda\n");
     scanf("%i", &nmeses);
-    if (1 < nmeses > 24) {
+    if (nmeses > 24 || nmeses <1) {
             
 		printf("El maximo de meses para consultar la moda es de 24. Por favor, intentelo de nuevo.\n");
      }
-}while (1 < nmeses > 24);
+}while (nmeses > 24 || nmeses <1);
 
     for (p = 0; p < nenergias; p++)
     {
@@ -223,10 +231,10 @@ do{
 	do{
             printf("Introduzca el mes %i de la energía %i\n", l + 1, p + 1);
             scanf("%i", &mes[l]);
-	if (1< mes[l] > 12) {
+	if (mes[l] >12 || mes[l] <1) {
 		printf("El mes introducido es incorrecto. Por favor, intentelo de nuevo.\n");
 	}
-	}while (1< mes[l]>12);	
+	}while (mes[l] >12 || mes[l] <1);	
 		
 	do{
             printf("Introduzca el año en el que lo quiere consultar (2021/2022)");
@@ -294,7 +302,8 @@ do{
     mayor = calculomoda(datos_convertidos, nenergias);
     
     printf("Este es el dato de la energía más usada en los meses introducidos: %f", mayor);
-	
+
+printf("\n");
 }
 
 float calculomoda(float datos_convertidos[][40], int nenergias)
@@ -327,14 +336,37 @@ void funcionmostrar(int energias [],int nenergias,Datos filas [30])
 	int mes[24],ano[24];
 	for (i=0;i<nenergias;i++)
 {       
+		do{
 		printf("¿Cuantos datos de la energía %i quiere mostrar?\n",energias[i]);
 		scanf("%i",&numdatos);
+		if (numdatos > 24 || numdatos <1) {
+            
+		printf("El maximo es de 24. Por favor, intentelo de nuevo.\n");
+		
+		}
+		}while (numdatos > 24 || numdatos <1);
+		
 		for (j=0;j<numdatos;j++)
 		{
+			do{
 			printf("Intrduzca el mes %i de la energia %i: ",j+1,energias[i]);
 			scanf("%i",&mes[j]);
+				
+			if (mes[j] >12 || mes[j] <1) {
+			
+			printf("El mes introducido es incorrecto. Por favor, intentelo de nuevo.\n");
+			}
+			
+			}while (mes[j] >12 || mes[j] <1);
+			
+			do{
 			printf("Introduzca el año de dicho mes: ");
 			scanf("%i",&ano[j]);
+			if(ano[j] != 2021 && ano[j] != 2022){
+            	printf("No tenemos constancia de ese año. Por favor, intentelo de nuevo.\n");
+			}
+			
+			}while(ano[j]!=2021 && ano[j]!=2022);
 		}
 		for (j=0;j<numdatos;j++)
 	{
@@ -375,29 +407,53 @@ void funcionmostrar(int energias [],int nenergias,Datos filas [30])
 	}
 }
 	
+printf("\n");
 }
 void funcionmedia ( int nenergias, int energias[], Datos filas[30])
 {
 	
-     float datos_convertidos[30][40];
-     int nmeses = 0, l, i, j, k, o, p, m, n, q, y, x;
+    float datos_convertidos[30][40];
+    int nmeses = 0, l, i, j, k, o, p, m, n, q, y, x;
     int mes[24], ano[24];
     int energy = 1;
     int ncomas = 0;
     char datos[30][40];
     float suma, media;
+	
+	do{
    	printf ("Introduzca el numero de meses de consulta para la energia %i \n", nenergias);
  	scanf ("%i", &nmeses);
+	
+	if (nmeses > 24 || nmeses <1) {
+            
+		printf("El maximo de meses para consultar la media es de 24. Por favor, intentelo de nuevo.\n");
+		
+	}
+	}while (nmeses > 24 || nmeses <1);
     
     
       for (p = 0; p < nenergias; p++)
     {
         for (l = 0; l < nmeses; l++)
         {
+	do{
             printf("Introduzca el mes %i de la energía %i\n", l + 1, p + 1);
             scanf("%i", &mes[l]);
+	if (mes[l] >12 || mes[l] <1) {
+		
+		printf("El mes introducido es incorrecto. Por favor, intentelo de nuevo.\n");
+		
+	}
+	}while (mes[l] >12 || mes[l] <1);
+	
+	do{
             printf("Introduzca el año en el que lo quiere consultar (2021/2022)");
             scanf("%i", &ano[l]);
+	if(ano[l] != 2021 && ano[l] != 2022){
+            	printf("No tenemos constancia de ese año. Por favor, intentelo de nuevo.\n");
+	}
+		
+	}while(ano[l]!=2021 && ano[l]!=2022);
         }
 
         for (o = 0; o < nmeses; o++)
@@ -456,7 +512,8 @@ void funcionmedia ( int nenergias, int energias[], Datos filas[30])
 	  media = calculomedia( datos_convertidos, nenergias, nmeses);
       printf("la media es %f\n", media);
 	}
-    
+	
+printf("\n");
 }
 float calculomedia ( float datos_convertidos[][40], int nenergias, int nmeses)
 {
