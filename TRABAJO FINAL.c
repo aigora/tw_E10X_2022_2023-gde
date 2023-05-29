@@ -206,7 +206,6 @@ void funcionmoda(int energias[], Datos filas[30], int nenergias)
 {
     int nmeses = 0, l, i, j, k, o, p, m, n, q, r;
     int mes[24], ano[24];
-    int energy = 1;
     int ncomas = 0;
     char datos[30][40];
     float datos_convertidos[30][40];
@@ -413,7 +412,6 @@ void funcionmedia ( int nenergias, int energias[], Datos filas[30])
     float datos_convertidos[30][40];
     int nmeses = 0, l, i, j, k, o, p, m, n, q, y, x;
     int mes[24], ano[24];
-    int energy = 1;
     int ncomas = 0;
     char datos[30][40];
     float suma, media;
