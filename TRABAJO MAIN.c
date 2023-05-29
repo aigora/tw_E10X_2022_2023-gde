@@ -206,7 +206,7 @@ void funciontipo(int numeros[], int nenergias)
 
 void funcionmoda(int energias[], Datos filas[30], int nenergias)
 {
-    int nmeses = 0, l, i, j, k, o, p, m, n, q;
+    int nmeses = 0, l, i, j, k, o, p, m, n, q, r;
     int mes[24], ano[24];
     int energy = 1;
     int ncomas = 0;
@@ -250,7 +250,7 @@ do{
         {
             ncomas = 0;
             k = 0;
-
+	    r=p*(p+o);
             if (ano[o] == 2022)
             {
                 for (i = energias[p] + 4, j = 1; ncomas != mes[o] + 13; j++)
@@ -259,7 +259,7 @@ do{
                         ncomas++;
                     else if (ncomas == mes[o] + 12)
                     {
-                        datos[p][k] = filas[i].filasenteras[j];
+                        datos[r][k] = filas[i].filasenteras[j];
                         k++;
                     }
                 }
@@ -272,23 +272,23 @@ do{
                         ncomas++;
                     else if (ncomas == mes[o])
                     {
-                        datos[p][k] = filas[i].filasenteras[j];
+                        datos[r][k] = filas[i].filasenteras[j];
                         k++;
                     }
                 }
             }
 
-            datos[p][k] = '\0';  // Agregar el carácter de terminación de cadena
+            datos[r][k] = '\0';  // Agregar el carácter de terminación de cadena
 
-            printf("Dato para el mes %i/%i de la energía %i es: %s\n", mes[o], ano[o], p + 1, datos[p]);
-        }
+            printf("Dato para el mes %i/%i de la energía %i introducida es: %s\n", mes[o], ano[o], p + 1, datos[p]);
+        } r++;
     }
 
-    // Imprimir todos los datos almacenados en el vector
-    for (m = 0; m < nenergias; m++)
+    
+    /*for (m = 0; m < nenergias; m++)
     {
         printf("%s\n", datos[m]);
-    }
+    }*/
 
 	//Convertimos los datos tipo char a tipo float para poder compararlos
     for (n = 0; n < nenergias; n++)
@@ -296,12 +296,12 @@ do{
         for (q = 0; q < strlen(datos[m]); q++)
         {
             datos_convertidos[n][q] = atof(&datos[n][q]); // Convertir la cadena a número real
-            printf("%f\n", datos_convertidos[n][q]);
+            //printf("%f\n", datos_convertidos[n][q]);
         }
     }
     mayor = calculomoda(datos_convertidos, nenergias);
     
-    printf("Este es el dato de la energía más usada en los meses introducidos: %f", mayor);
+    printf("Este es uno de los datos pertenecientes a la energía más usada en los meses introducidos: %f", mayor);
 
 printf("\n");
 }
