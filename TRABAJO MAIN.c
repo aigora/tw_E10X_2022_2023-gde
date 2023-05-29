@@ -45,7 +45,7 @@ int main()
 																//CIERRO CADENA														
     }
  while (1) {
-	printf("Quiere:\nConsultar (0)\nAñadir datos (1)\nFinalizar el programa (2)\n");//Control de datos
+	printf("Quiere:\nConsultar(0)\nAñadir datos(1)\nFinalizar el programa(2)\n");//Control de datos
 	scanf("%i",&accion);
 	
 	if (accion==2)
