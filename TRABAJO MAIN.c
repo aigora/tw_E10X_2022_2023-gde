@@ -237,7 +237,7 @@ do{
 	}while (mes[l] >12 || mes[l] <1);	
 		
 	do{
-            printf("Introduzca el año en el que lo quiere consultar (2021/2022)");
+            printf("Introduzca el año en el que lo quiere consultar (2021/2022)\n");
             scanf("%i", &ano[l]);
 	if(ano[l] != 2021 && ano[l] != 2022){
             	printf("No tenemos constancia de ese año. Por favor, intentelo de nuevo.\n");
@@ -301,7 +301,7 @@ do{
     }
     mayor = calculomoda(datos_convertidos, nenergias);
     
-    printf("Este es uno de los datos pertenecientes a la energía más usada en los meses introducidos: %f", mayor);
+    printf("Este es uno de los datos pertenecientes a la energía más usada en los meses introducidos: %f GWh", mayor);
 
 printf("\n");
 }
@@ -447,7 +447,7 @@ void funcionmedia ( int nenergias, int energias[], Datos filas[30])
 	}while (mes[l] >12 || mes[l] <1);
 	
 	do{
-            printf("Introduzca el año en el que lo quiere consultar (2021/2022)");
+            printf("Introduzca el año en el que lo quiere consultar (2021/2022)\n");
             scanf("%i", &ano[l]);
 	if(ano[l] != 2021 && ano[l] != 2022){
             	printf("No tenemos constancia de ese año. Por favor, intentelo de nuevo.\n");
