@@ -248,22 +248,22 @@ do{
             ncomas = 0;
             k = 0;
 	    r=p*(p+o);
-            if (ano[o] == 2022)
+            if (ano[o] == 2022)//En este bucle, se recorre la cadena de la fila (energía) correspondiente. Al llegar a la coma 12 ya ha recorrido todos los datos del año 2022
             {
-                for (i = energias[p] + 4, j = 1; ncomas != mes[o] + 13; j++)
+                for (i = energias[p] + 4, j = 1; ncomas != mes[o] + 13; j++)//Una vez llega al dato deseado guarda en una caracteres hasta la coma siguiente,por es finaliza en la coma mes+13.
                 {
                     if (filas[i].filasenteras[j] == ',')
                         ncomas++;
-                    else if (ncomas == mes[o] + 12)
+                    else if (ncomas == mes[o] + 12)//Sigue recorriendo hasta llegar hasta la coma anterior al dato del mes deseado, por eso se suma el valor del mes al 12.
                     {
                         datos[r][k] = filas[i].filasenteras[j];
                         k++;
                     }
                 }
             }
-            else if (ano[o] == 2021)
+            else if (ano[o] == 2021)//Funciona de la mimsa manera pero al estar los datos del 2021 primero en el csv el programa cuenta tantas comas como el numero del mes.
             {
-                for (i = energias[p] + 4, j = 1; ncomas != mes[o] + 1; j++)
+                for (i = energias[p] + 4, j = 1; ncomas != mes[o] + 1; j++)//Se almacena el dato desde la coma deseada hasta la siguiente.
                 {
                     if (filas[i].filasenteras[j] == ',')
                         ncomas++;
