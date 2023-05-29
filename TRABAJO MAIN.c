@@ -58,6 +58,9 @@ int main()
 		}
 		} while (nenergias < 1 || nenergias > 18);
     	
+	int energias[nenergias];
+        int contador = 0;	
+		
     printf ("Introduzca la energia/as que quiere consultar.\n");
  	printf ("Hidraulica(1)\n");
  	printf ("Turbinacion bombeo(2)\n");
@@ -78,10 +81,30 @@ int main()
  	printf ("Residuos renovables(17)\n");
  	printf ("Generacion total(18)\n");
  	
+	while (contador < nenergias) {
+        
+		int numero;
+        
+		printf("Energia %d: ", contador + 1);
+        scanf(" %d", &numero);
+
+        if (numero >= 1 && numero <= 18) {
+		
+            energias[contador] = numero;
+            contador++;
+		
+        } else {
+		
+            printf("Numero invalido. Ingrese un numero del 1 al 18.\n");
+        }
+    }
+		
  	  for (i=0;i<nenergias;i++)//Control de datos
  	  {
- 		scanf("%i",&energias[i]);
+ 		printf("%i",energias[i]);
 	  }
+		
+	printf("\n");	
 		
 	do{	
 	printf("Que tipo de consulta quiere hacer\n");
