@@ -371,20 +371,20 @@ void funcionmostrar(int energias [],int nenergias,Datos filas [30])
 		for (j=0;j<numdatos;j++)
 	{
 		if(ano[j]==2022)
-       {
-            	for(k=energias[i]+4,l=1,m=0,ncomas=0;ncomas!=mes[j]+13;l++)
+       {//En este bucle, se recorre la cadena de la fila (energía) correspondiente. Al llegar a la coma 12 ya ha recorrido todos los datos del año 2022 
+            	for(k=energias[i]+4,l=1,m=0,ncomas=0;ncomas!=mes[j]+13;l++)//Una vez llega al dato deseado guarda en una caracteres hasta la coma siguiente,por es finaliza en la coma mes+13. 
 	    	{
     	
                 	if (filas[k].filasenteras[l]==',') ncomas++;
         	else
     	        {
-    	    		if (ncomas==mes[j]+12)	
+    	    		if (ncomas==mes[j]+12)	//Sigue recorriendo hasta llegar hasta la coma anterior al dato del mes deseado, por eso se suma el valor del mes al 12.
 		           {
 				      dato[m]=filas[k].filasenteras[l];
 				    m++;
 			       }
 		        }
-	       }
+	       } 
 	       printf("Este es el dato del %i/%i de la energía %i: %s \n",mes[j],ano[j],energias[i],dato); 
 	   } 
 	   if (ano[j]==2021)
